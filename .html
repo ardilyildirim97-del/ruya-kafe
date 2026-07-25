@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rüya Kıraathanesi | Geleneksel & Modern Lezzetler</title>
+  <style>
+    /* Global Stiller */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+      --primary-color: #3d2314;
+      --accent-color: #c8965d;
+      --bg-color: #fdfaf6;
+      --card-bg: #ffffff;
+      --text-color: #2c2c2c;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Header & Navigasyon */
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      color: var(--accent-color);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Hero Bölümü */
+    .hero {
+      background: linear-gradient(rgba(61, 35, 20, 0.75), rgba(61, 35, 20, 0.75)), 
+                  url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 1rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 0.8rem 2rem;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #a87944;
+    }
+
+    /* İçerik Konteynerı */
+    .container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent-color);
+      display: block;
+      margin: 0.5rem auto 0;
+    }
+
+    /* Menü Sekmeleri */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.6rem 1.5rem;
+      border: 2px solid var(--primary-color);
+      background: transparent;
+      color: var(--primary-color);
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    /* Menü Izgarası (Grid) */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--accent-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu-card h4 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+    }
+
+    .menu-card p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.2rem;
+    }
+
+    .price {
+      font-weight: bold;
+      color: var(--accent-color);
+      font-size: 1.2rem;
+    }
+
+    /* Hakkımızda & İletişim */
+    .info-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .info-box {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .info-box h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>RÜYA KIRAATHANESİ</h1>
+    <nav>
+      <a href="#menu">Menü</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Geleneksel Sohbet, Modern Lezzet</h2>
+    <p>Taze demlenmiş çayımız, özel dibek kahvemiz ve dostane ortamımızla sizleri bekliyoruz.</p>
+    <a href="#menu" class="btn">Menüyü İncele</a>
+  </section>
+
+  <div class="container">
+    
+    <section id="menu">
+      <h2 class="section-title">Menümüz</h2>
+      
+      <div class="menu-tabs">
+        <button class="tab-btn active" onclick="filterMenu('all')">Tümü</button>
+        <button class="tab-btn" onclick="filterMenu('sicak')">Sıcak İçecekler</button>
+        <button class="tab-btn" onclick="filterMenu('souk')">Soğuk İçecekler</button>
+        <button class="tab-btn" onclick="filterMenu('atistirmalik')">Atıştırmalıklar</button>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-card sicak">
+          <div>
+            <h4>Tavşan Kanı Rize Çayı</h4>
+            <p>Özel harman taze demlenmiş çay</p>
+          </div>
+          <span class="price">20 ₺</span>
+        </div>
+
+        <div class="menu-card sicak">
+          <div>
+            <h4>Geleneksel Türk Kahvesi</h4>
+            <p>Közde pişirilmiş, lokum ile servis edilir</p>
+          </div>
+          <span class="price">50 ₺</span>
+        </div>
+
+        <div class="menu-card souk">
+          <div>
+            <h4>Sade Maden Suyu (Soda)</h4>
+            <p>Ferahlatıcı doğal maden suyu</p>
+          </div>
+          <span class="price">30 ₺</span>
+        </div>
+
+        <div class="menu-card souk">
+          <div>
+            <h4>Meyveli Soda Çeşitleri</h4>
+            <p>Limon, elma ve çilek seçenekleriyle</p>
+          </div>
+          <span class="price">35 ₺</span>
+        </div>
+
+        <div class="menu-card atistirmalik">
+          <div>
+            <h4>Taze Poğaça & Kek Çeşitleri</h4>
+            <p>Peynirli poğaça ve ev yapımı kek</p>
+          </div>
+          <span class="price">35 ₺</span>
+        </div>
+
+        <div class="menu-card atistirmalik">
+          <div>
+            <h4>Özel Dolgulu Poğaça / Kek</h4>
+            <p>Zeytinli, kaşarlı poğaça veya çikolatalı kek</p>
+          </div>
+          <span class="price">40 ₺</span>
+        </div>
+
+        <div class="menu-card atistirmalik">
+          <div>
+            <h4>Taze Çıtır Tost</h4>
+            <p>Kaşarlı / Sucuklu / Karışık</p>
+          </div>
+          <span class="price">80 ₺</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="info-section">
+      <section id="hakkimizda" class="info-box">
+        <h3>Bizimle Rüya Gibi Bir Vakit</h3>
+        <p>Rüya Kıraathanesi, geleneksel mahalle kültürünü modern konforla bir araya getiriyor. İster arkadaşlarınızla okey ve tavla oynayın, ister sıcak bir çay eşliğinde kitabınızı okuyun.</p>
+      </section>
+
+      <section id="iletisim" class="info-box">
+        <h3>Çalışma Saatleri & Adres</h3>
+        <p><strong>Çalışma Saatleri:</strong> Her gün 08:00 - 01:00</p>
+        <p><strong>Adres:</strong> Merkez Mah. Rüya Sk. No: 12</p>
+        <p><strong>Telefon:</strong> +90 (555) 000 00 00</p>
+      </section>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Rüya Kıraathanesi. Tüm Hakları Saklıdır.</p>
+  </footer>
+
+  <script>
+    function filterMenu(category) {
+      const cards = document.querySelectorAll('.menu-card');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
